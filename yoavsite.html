@@ -6,26 +6,53 @@
     <title>Yoav's Site</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             color: #333;
             text-align: center;
             padding: 50px;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         .button {
             display: inline-block;
-            padding: 50px 100px;
-            font-size: 2em;
+            padding: 20px 50px;
+            font-size: 1.5em;
             color: white;
             background-color: #e74c3c;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 50px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             margin: 20px;
-            transition: background-color 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         .button:hover {
             background-color: #c0392b;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        .button::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(255, 255, 255, 0.3);
+            width: 300%;
+            height: 300%;
+            transition: all 0.5s ease;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
         }
         .secondary-button {
             background-color: #3498db;
@@ -37,9 +64,16 @@
             display: none;
         }
         img {
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
-            margin-top: 20px;
+            margin-top: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
     <script>
@@ -48,6 +82,7 @@
             document.querySelector(gifElement).classList.remove('hidden');
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <a href="javascript:void(0);" class="button" onclick="showGif('.gif1')">OK OK, I'm the last button left. You only got one choice. You gotta press me.</a>
