@@ -17,20 +17,18 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
+            transition: opacity 1s ease-out;
         }
         h1 {
             color: #2c3e50;
             font-size: 3em;
             margin-bottom: 20px;
-            animation: fadeIn 1s ease-out;
         }
         p {
             font-size: 1.5em;
             margin: 20px 0;
             font-weight: 300;
             color: #555;
-            animation: fadeIn 1.5s ease-out;
         }
         .button {
             display: inline-block;
@@ -40,17 +38,16 @@
             background-color: #3498db;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             margin: 15px;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            animation: slideInUp 1s ease-out;
         }
         .button:hover {
             background-color: #2980b9;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
             transform: translateY(-5px);
         }
         .button::before {
@@ -69,32 +66,20 @@
         .button:hover::before {
             transform: translate(-50%, -50%) scale(1);
         }
-        .rainbow-button {
-            background: linear-gradient(45deg, #ff6f61, #f7b267, #f7e667, #7bc043, #00bcd4, #7b6ddf, #f973ab);
-            color: white;
-            border: none;
-            animation: slideInUp 1.2s ease-out;
-        }
-        .rainbow-button:hover {
-            opacity: 0.95;
-            transform: scale(1.1);
-            background-size: 200%;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInUp {
-            from { transform: translateY(100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .fade-out {
+            opacity: 0;
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        function transitionToPage(link) {
+            document.body.classList.add('fade-out');
+            setTimeout(function() {
+                window.location.href = link;
+            }, 1000);
+        }
+    </script>
 </head>
 <body>
     <h1>Hello, Welcome to My Website!</h1>
     <p>Happy to have ya! Click the buttons below. or else...</p>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="button" target="_blank">Check It Out!</a>
-    <a href="yoavsite.html" class="button rainbow-button">Go to Yoav's Site</a>
-</body>
-</html>
+    <a href="javascript:void(0);" class="button" onclick="transitionToPage('yoavsite
