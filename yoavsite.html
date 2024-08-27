@@ -27,6 +27,12 @@
         .button:hover {
             background-color: #c0392b;
         }
+        .secondary-button {
+            background-color: #3498db;
+        }
+        .secondary-button:hover {
+            background-color: #2980b9;
+        }
         .hidden {
             display: none;
         }
@@ -37,14 +43,16 @@
         }
     </style>
     <script>
-        function showGif() {
-            document.querySelector('.button').classList.add('hidden');
-            document.querySelector('.gif').classList.remove('hidden');
+        function showGif(gifElement) {
+            document.querySelectorAll('.button').forEach(button => button.classList.add('hidden'));
+            document.querySelector(gifElement).classList.remove('hidden');
         }
     </script>
 </head>
 <body>
-    <a href="javascript:void(0);" class="button" onclick="showGif()">OK OK, I'm the last button left. You only got one choice. You gotta press me.</a>
-    <img src="3d.gif" class="gif hidden" alt="3D GIF">
+    <a href="javascript:void(0);" class="button" onclick="showGif('.gif1')">OK OK, I'm the last button left. You only got one choice. You gotta press me.</a>
+    <a href="javascript:void(0);" class="button secondary-button" onclick="showGif('.gif2')">Or... press me instead!</a>
+    <img src="3d.gif" class="gif1 hidden" alt="3D GIF">
+    <img src="https://raw.githubusercontent.com/Yoav-Friedman/vapenash/main/amous.gif" class="gif2 hidden" alt="Amous GIF">
 </body>
 </html>
