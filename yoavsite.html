@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
             color: #333;
             text-align: center;
             padding: 50px;
@@ -17,6 +17,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            opacity: 0;
+            transition: opacity 1s ease-in;
         }
         .button {
             display: inline-block;
@@ -26,7 +28,7 @@
             background-color: #e74c3c;
             text-decoration: none;
             border-radius: 50px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             margin: 20px;
             position: relative;
@@ -35,7 +37,7 @@
         }
         .button:hover {
             background-color: #c0392b;
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
             transform: translateY(-5px);
         }
         .button::before {
@@ -77,10 +79,9 @@
         }
     </style>
     <script>
-        function showGif(gifElement) {
-            document.querySelectorAll('.button').forEach(button => button.classList.add('hidden'));
-            document.querySelector(gifElement).classList.remove('hidden');
-        }
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.style.opacity = 1;
+        });
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
